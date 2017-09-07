@@ -57,6 +57,7 @@ export default class App extends React.Component{
                 Test
                 {homeCmp}
                 <input type="text" value={this.state.homeLink} onChange={(event) => this.onHandlerEvent(event)}/>
+                <button>make me order</button>
             </div>
         );
     }
