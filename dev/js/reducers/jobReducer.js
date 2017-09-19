@@ -1,16 +1,13 @@
-import { FETCH_REQUEST, FETCH_SUCCESS } from '../actions/index';
 
-export const reducer = (state = [{"id": 4, "name": "G"}], action) => {
-	//console.log('Action------',state, action);
-  	return state;
-  
-  /*switch (action.type) {
-    case "FETCH_REQUEST":
-      return state;
-    case "FETCH_SUCCESS": 
-      return {...state, posts: action.payload};
-    default:
-      return state;
-  }*/
-
+const jobs = (state=[], action) => {
+  console.log(action.type, action);
+  switch(action.type){
+    case 'GET_JOBS_SUCCESS':
+      return action.data
+    default : 
+      return state
+  }
 }
+
+
+export default jobs

@@ -1,9 +1,8 @@
 import { combineReducers } from 'redux';
-
-import { reducer } from './jobReducer';
+import jobs from './jobReducer';
 
 const JobApp = combineReducers({
-  job: reducer
+  jobs: jobs
 })
 
 export default JobApp
