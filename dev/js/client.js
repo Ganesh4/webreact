@@ -1,19 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Apps from './components/Apps';
-import {render} from 'react-dom';
-import { createStore } from 'redux';
+//import thunk from 'redux-thunk';
+//import {createStore, applyMiddleware} from 'redux';
 import { Provider } from 'react-redux';
-import todoApp from './reducers/index'
+import App from './components/jobList';
+import configureStore from './store/index';
+//import JobApp from './reducers/index';  
 
-const app = document.getElementById('app');
-let store = createStore(todoApp);
-// ReactDOM.render(<App/>, app);
+// const store = createStore(
+//     JobApp,
+//     applyMiddleware(thunk)
+// );
+const store = configureStore(App,{});
 
-render(
-	<Provider store={store}>
-	<Apps/>
-	</Provider>,
-	app
-)
+console.log(store);
 
+ReactDOM.render(
+    <Provider store={store}>
+        <App/>
+    </Provider>,
+    document.getElementById('app')
+);

@@ -1,36 +1,9 @@
-import { combineReducers } from 'redux'
-import { ADD_TODO } from '../actions/index'
+import { combineReducers } from 'redux';
 
-function todo(state, action) {
-   switch (action.type) {
-	
-      case ADD_TODO:
-         return {
-            id: action.id,
-            text: action.text,
-         }
-			
-      default:
-      return state
-   }
-}
+import { reducer } from './jobReducer';
 
-function todos(state = [], action) {
-   switch (action.type) {
-	
-      case ADD_TODO:
-         return [
-            ...state,
-            todo(undefined, action)
-         ]
-			
-      default:
-      return state
-   }
-}
-
-const todoApp = combineReducers({
-   todos
+const JobApp = combineReducers({
+  job: reducer
 })
 
-export default todoApp
+export default JobApp
