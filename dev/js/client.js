@@ -1,23 +1,17 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-//import thunk from 'redux-thunk';
-//import {createStore, applyMiddleware} from 'redux';
+import {render} from 'react-dom'
+import {createStore, applyMiddleware, compose} from 'redux';
 import { Provider } from 'react-redux';
 import App from './components/jobList';
-import configureStore from './store/index';
-//import JobApp from './reducers/index';  
+import jobService from './service/jobService';
+import JobApp from './reducers';
 
-// const store = createStore(
-//     JobApp,
-//     applyMiddleware(thunk)
-// );
-const store = configureStore(App,{});
+let store = createStore(JobApp,{}, compose(applyMiddleware(jobService), window.devToolsExtension
+	? window.devToolsExtension() : f => f))
 
-console.log(store);
+render(
+<Provider store={store}>
+	<App/>
+</Provider>, document.getElementById('app'))
 
-ReactDOM.render(
-    <Provider store={store}>
-        <App/>
-    </Provider>,
-    document.getElementById('app')
-);
+store.dispatch({type: 'GET_JOBS'})
