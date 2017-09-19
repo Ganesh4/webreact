@@ -18,11 +18,11 @@ class App extends React.Component {
     })
     let getFilterValue = filterValue[0];
     console.log(getFilterValue.directorName)
-    str +='<div>'+ getFilterValue.directorName + '</div>'+
-          '<div>'+getFilterValue.jobreferNumber+'</div>'+
-          '<div>'+getFilterValue.createdDate+'</div>'+
-          '<div>'+getFilterValue.jobName+'</div>'+
-          '<div>'+getFilterValue.managePeopleCount+'</div>';
+    str +='<div>directorName:'+ getFilterValue.directorName + '</div>'+
+          '<div>jobreferNumber:'+getFilterValue.jobreferNumber+'</div>'+
+          '<div>createdDate:'+getFilterValue.createdDate+'</div>'+
+          '<div>jobName:'+getFilterValue.jobName+'</div>'+
+          '<div>managePeopleCount:'+getFilterValue.managePeopleCount+'</div>';
 
     $("#summary").html(str);
     
